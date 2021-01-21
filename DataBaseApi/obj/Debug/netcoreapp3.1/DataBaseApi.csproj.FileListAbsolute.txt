@@ -1,0 +1,8 @@
+C:\Users\Илья\source\repos\Сherry\DataBaseApi\bin\Debug\netcoreapp3.1\DataBaseApi.deps.json
+C:\Users\Илья\source\repos\Сherry\DataBaseApi\bin\Debug\netcoreapp3.1\DataBaseApi.dll
+C:\Users\Илья\source\repos\Сherry\DataBaseApi\bin\Debug\netcoreapp3.1\DataBaseApi.pdb
+C:\Users\Илья\source\repos\Сherry\DataBaseApi\obj\Debug\netcoreapp3.1\DataBaseApi.AssemblyInfoInputs.cache
+C:\Users\Илья\source\repos\Сherry\DataBaseApi\obj\Debug\netcoreapp3.1\DataBaseApi.AssemblyInfo.cs
+C:\Users\Илья\source\repos\Сherry\DataBaseApi\obj\Debug\netcoreapp3.1\DataBaseApi.csproj.CoreCompileInputs.cache
+C:\Users\Илья\source\repos\Сherry\DataBaseApi\obj\Debug\netcoreapp3.1\DataBaseApi.dll
+C:\Users\Илья\source\repos\Сherry\DataBaseApi\obj\Debug\netcoreapp3.1\DataBaseApi.pdb

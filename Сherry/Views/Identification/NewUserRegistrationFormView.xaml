@@ -1,0 +1,198 @@
+﻿<Page x:Class="Сherry.Views.Identification.NewUserRegistrationFormView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Сherry.Views.Identification" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:domain="clr-namespace:Сherry.ViewModels.Validation" 
+      xmlns:identification="clr-namespace:Сherry.ViewModels.Identification" 
+      d:DataContext="{d:DesignInstance Type=identification:NewUserRegistrationFormModel}"
+      xmlns:passBinding="clr-namespace:Сherry.ViewModels.Validation"
+      xmlns:convert="clr-namespace:Сherry.ViewModels.Converter"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="400" MaxHeight="600" MaxWidth="600"
+      Title="NewUserRegistrationFormView">
+
+
+    <Page.Resources>
+
+        <convert:ConverterVisible x:Key="myDateConverter" />
+
+    </Page.Resources>
+
+
+    <!--<Page.Resources>
+
+
+        <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource MaterialDesignTextBox}">
+            --><!--<Setter Property="Validation.ErrorTemplate">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <DockPanel LastChildFill="True">
+                            --><!--<TextBlock DockPanel.Dock="Right" Foreground="Red" FontSize="14" FontWeight="Bold"
+                                                       Text="*"/>-->
+                            <!--<Border BorderBrush="Green" BorderThickness="1">
+                                <AdornedElementPlaceholder Name="adornerPlaceholder"/>
+                            </Border>--><!--
+                        </DockPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>--><!--
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="Foreground" Value="{StaticResource ColorForegroundBlue  }"/>
+                </Trigger>
+
+                <Trigger Property="Validation.Errors" Value="True">
+                    <Setter Property="Foreground" Value="{StaticResource ColorForegroundBlue  }"/>
+                </Trigger>
+                
+            </Style.Triggers>
+
+        </Style>
+
+    </Page.Resources>-->
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <StackPanel>
+
+                <materialDesign:PackIcon Kind="EmoticonHappyOutline" 
+                                         Height="120" 
+                                         Width="120"  VerticalAlignment="
+                                         Center" HorizontalAlignment="Center" 
+                                         Foreground="{StaticResource ColorForegroundBlue  }" />
+
+                <TextBlock Text="Итак, давайте знакомиться.." Foreground="{StaticResource  ColorForegroundPackIcon}"  HorizontalAlignment="Center"/>
+
+            </StackPanel>
+            
+        </Grid>
+
+        <Grid Grid.Row="1">
+
+            <StackPanel Margin="20" Name="sp">
+
+
+                <TextBox
+                  x:Name="NameTextBox"
+                  materialDesign:HintAssist.Hint="Ваше имя"
+                  materialDesign:TextFieldAssist.HasClearButton="True"
+                  materialDesign:HintAssist.HelperText="">
+                    <TextBox.Text>
+                        <Binding Path="Name" UpdateSourceTrigger="PropertyChanged" >
+                            <Binding.ValidationRules>
+                                <domain:DefaultValidationRule ValidatesOnTargetUpdated="True" MaxLength="20" />
+                                
+                                <ExceptionValidationRule/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <Grid Height="20"/>
+                
+                <TextBox
+                  x:Name="PhoneTextBox"
+                  materialDesign:HintAssist.Hint="Ваш телефон"
+                  materialDesign:TextFieldAssist.HasClearButton="True"
+                  materialDesign:ValidationAssist.UsePopup="True"
+                  materialDesign:HintAssist.HelperText="">
+                    <TextBox.Text>
+                        <Binding Path="Phone" UpdateSourceTrigger="PropertyChanged" >
+                            <Binding.ValidationRules>
+                                <domain:DefaultValidationRule ValidatesOnTargetUpdated="True" MaxLength="20" />
+                                <ExceptionValidationRule/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <Grid Height="20"/>
+
+                <TextBox
+                  x:Name="LoginTextBox"
+                  materialDesign:HintAssist.Hint="Логин"
+                  materialDesign:TextFieldAssist.HasClearButton="True"
+                  materialDesign:HintAssist.HelperText="Обязательное поле для заполнения">
+                    <TextBox.Text>
+                        <Binding Path="Login" UpdateSourceTrigger="PropertyChanged" >
+                            <Binding.ValidationRules>
+                                <domain:LoginValidationRule ValidatesOnTargetUpdated="True" MinLength="4" MaxLength="10" />
+                                <ExceptionValidationRule/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <Grid Height="20"/>
+
+                <PasswordBox
+                  x:Name="PasswordBox"
+                  materialDesign:HintAssist.Hint="Пароль"
+                  materialDesign:TextFieldAssist.HasClearButton="True"
+                  materialDesign:HintAssist.HelperText="Обязательное поле для заполнения" >
+                    <passBinding:Secure.Password>
+                        <Binding Path="Password" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <domain:PasswordValidationRule ValidatesOnTargetUpdated="True" MinLength="4" MaxLength="10" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </passBinding:Secure.Password>
+                </PasswordBox>
+
+                <Grid Height="20"/>
+
+                <PasswordBox
+                  x:Name="PasswordBox2"
+                  materialDesign:HintAssist.Hint="Подтвердите пароль"
+                  materialDesign:TextFieldAssist.HasClearButton="True"
+                  materialDesign:HintAssist.HelperText="Обязательное поле для заполнения" >
+                    <passBinding:Secure.Password>
+                        <Binding Path="PasswordChecking" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <domain:PasswordValidationRule ValidatesOnTargetUpdated="True" MinLength="4" MaxLength="10" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </passBinding:Secure.Password>
+                </PasswordBox>
+
+            </StackPanel>
+                        
+        </Grid>
+
+
+        <Grid Grid.Row="2">
+            <DockPanel HorizontalAlignment="Right" Margin="20">
+
+                <Grid  VerticalAlignment="Bottom"  Background="Transparent">
+                    <TextBlock Text="ОТМЕНА" Foreground="{StaticResource ColorForegroundBlue}" Cursor="Hand"/>
+
+                    <Grid.InputBindings>
+                        <MouseBinding Gesture="LeftClick" Command="{Binding BtnCancel}" />
+                    </Grid.InputBindings>
+                </Grid>
+                <Grid Width="20"/>
+
+                <Grid  VerticalAlignment="Bottom" Background="Transparent" >
+                    
+                    <TextBlock Text="СОХРАНИТЬ" Foreground="{StaticResource ColorForegroundBlue}" Cursor="Hand"/>
+
+                    <Grid.InputBindings>
+                        <MouseBinding Gesture="LeftClick" Command="{Binding BtnSave}" />
+                    </Grid.InputBindings>
+                </Grid>
+
+            </DockPanel>
+            
+
+        </Grid>
+
+    </Grid>
+</Page>

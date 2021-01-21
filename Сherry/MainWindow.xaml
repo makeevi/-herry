@@ -1,0 +1,61 @@
+﻿<Window x:Class="Сherry.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Сherry" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="800" MinHeight="550"
+        
+                
+        WindowStartupLocation="CenterScreen" 
+        ResizeMode="CanResizeWithGrip" 
+        WindowStyle="None" 
+        ShowInTaskbar="True"
+        AllowsTransparency="True"
+        
+        >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Height="30" Background="Transparent"  MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+            <DockPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Grid Cursor="Hand" Background="Transparent">
+                    <materialDesign:PackIcon Kind="WindowMinimize"  Foreground="{StaticResource ColorForegroundPackIcon}" Width="25" Height="25"/>
+                    <Grid.InputBindings>
+                        <MouseBinding Gesture="LeftClick" Command="{Binding BtnWindowMinimize}" />
+                    </Grid.InputBindings>
+                </Grid>
+                <Grid Width="5"/>
+
+                <Grid  Cursor="Hand" Background="Transparent">
+                    <materialDesign:PackIcon Kind="WindowMaximize"  Foreground="{StaticResource ColorForegroundPackIcon}" Width="25" Height="25"/>
+                    <Grid.InputBindings>
+                        <MouseBinding Gesture="LeftClick" Command="{Binding BtnWindowMaximize}" />
+                    </Grid.InputBindings>
+                </Grid>
+                <Grid Width="5"/>
+
+                <Grid  Cursor="Hand" Background="Transparent">
+                    <materialDesign:PackIcon Kind="WindowClose"   Foreground="{StaticResource ColorForegroundPackIcon}"  Width="25" Height="25"/>
+                    <Grid.InputBindings>
+                        <MouseBinding Gesture="LeftClick" Command="{Binding BtnWindowClose}" />
+                    </Grid.InputBindings>
+                </Grid>
+                <Grid Width="5"/>
+            </DockPanel>
+        </Grid>
+        
+        <Frame Grid.Row="1"
+            Content="{Binding CurrentPage}" 
+            NavigationUIVisibility="Hidden" 
+            Opacity="{Binding FrameOpacity}" Padding="0" Margin="0">
+
+        </Frame>
+        
+    </Grid>
+</Window>

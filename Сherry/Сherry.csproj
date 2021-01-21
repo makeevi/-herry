@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <PublishSingleFile>true</PublishSingleFile> <!--Говорит о том что будет 1 выходной файл-->
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <!--<PublishTrimmed>true</PublishTrimmed> --><!--Обрезает лишее-->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="3.2.0" />
+    <PackageReference Include="ShowMeTheXAML" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="UserControlApp\" />
+  </ItemGroup>
+
+</Project>
